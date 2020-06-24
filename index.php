@@ -15,6 +15,10 @@
 </ul>
 </p>";?>
 
+<?php
+echo "Hello, World!";
+?>
+
 <footer>
     <p>And this code is back in plain HTML</p>
 </footer>
