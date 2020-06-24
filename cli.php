@@ -1,2 +1,9 @@
 <?php
-echo 1 + 3 * (9 / 3) ** (1 + 1);
+function countdown()
+{
+    echo "4, 3, 2, 1, ";
+    return "blastoff!";
+}
+
+countdown();
+?>

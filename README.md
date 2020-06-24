@@ -117,3 +117,112 @@ echo 6.6 + 1.2; // Prints: 7.8
 echo 198263 - 263;  // Prints: 198000
 echo -22.8 - 19.1;
 ```
+
+### Functions 
+
+```
+function greetLearner()
+{
+  echo "Hello, Learner!\n";
+  echo "I hope you're enjoying PHP!\n";
+  echo "Love, Codecademy";
+}
+```
+
+* Return Statement
+```
+function countdown() 
+{
+  echo "4, 3, 2, 1, ";
+  return "blastoff!";
+}
+
+countdown() // prints "4, 3, 2, 1. "
+```
+
+```
+function countdown() 
+{
+  echo "4, 3, 2, 1, ";
+  return "blastoff!";
+}
+
+$return_value = countdown(); // Prints: 4, 3, 2, 1, 
+echo $return_value; // Prints: blastoff!
+```
+
+* Return Statement before echo
+As soon as the return statement is reached, the function will end
+```
+function announceRunning2()
+{
+  return "This is the return value of the second function.";
+  echo "P.S., I love you";
+}
+
+$second_result = announceRunning2();
+echo $second_result; // This is the return value of the second function.
+```
+
+* Return NUll 
+functions without return statements? Any function without a return returns a special value NULL. NULL is a special data type that stands for the absence of a value.
+
+```
+function returnNothing() 
+{
+  echo "I'm running! I'm running!\n";
+}
+
+$result = returnNothing(); // Prints: I'm running! I'm running!
+
+echo $result; // Nothing is printed
+
+```
+
+NULL can sometimes act like 0 
+
+```
+echo NULL * 3; // Prints: 0
+
+echo NULL . "!"; // Prints: !
+```
+
+### functions and parameter 
+
+```
+function sayCustomHello($name)
+{
+echo "Hello, $name!";
+};
+
+sayCustomHello("Aisle Nevertell"); // Prints: Hello, Aisle Nevertell!
+
+sayCustomHello("Codecademy learner"); // Prints: Hello, Codecademy Learner!
+```
+
+```
+function returnFive()
+{
+  return 5;
+}
+
+function addTwoToNum($num)
+{
+  return $num + 2;
+}
+
+echo addTwoToNum(returnFive()); // Prints: 7
+```
+
+### function and multi parameters 
+
+```
+function divide($num_one, $num_two)
+{
+  return $num_one / $num_two;
+};
+
+echo divide(12, 3); // Prints: 4
+
+echo divide(3, 12); // Prints: 0.25
+```
