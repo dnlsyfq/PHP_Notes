@@ -130,6 +130,7 @@ function greetLearner()
 ```
 
 * Return Statement
+Once the first return statement is executed, the function is exited.
 ```
 function countdown() 
 {
@@ -225,4 +226,80 @@ function divide($num_one, $num_two)
 echo divide(12, 3); // Prints: 4
 
 echo divide(3, 12); // Prints: 0.25
+```
+
+### default oarameter 
+
+```
+function greetFriend($name = "old chum")
+{
+  echo "Hello, $name!";
+};
+
+greetFriend("Marvin"); // Prints: Hello, Marvin!
+
+greetFriend(); // Prints: Hello, old chum!
+```
+
+### pass parameter
+
+```
+function addX ($param)
+{
+  $param = $param . "X";
+  echo $param;
+};
+$word = "Hello";
+addX($word); // Prints: HelloX
+echo $word; // Prints: Hello
+``` 
+
+* make permanent changes
+```
+function addXPermanently (&$param)
+{
+  $param = $param . "X";
+  echo $param;
+};
+$word = "Hello";
+addXPermanently($word); // Prints: HelloX
+echo $word; // Prints: HelloX
+```
+
+```
+<?php
+
+$string_one = "you have teeth";
+$string_two = "toads are nice";
+$string_three = "brown is my favorite color";
+
+// Write your code below:
+
+function convertToQuestion(&$str){
+  $str = "Do you think ".$str."?\n";
+}
+
+convertToQuestion($string_one);
+convertToQuestion($string_two);
+convertToQuestion($string_three);
+// function convertToQuestion(&$str)
+// {
+//   $str = "Do you think " . $str . "?\n";
+// }
+
+echo $string_one;
+echo $string_two;
+echo $string_three;
+```
+### Variable Scope 
+
+```
+$feed_quantity = 300;
+function calculateDaysLeft($number, $rate)
+{
+  global $feed_quantity;
+  $result = $feed_quantity / ($number * $rate);
+  return $result;
+}
+echo calculateDaysLeft(2, 120);
 ```
