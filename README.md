@@ -303,3 +303,102 @@ function calculateDaysLeft($number, $rate)
 }
 echo calculateDaysLeft(2, 120);
 ```
+
+## Built-in PHP functions
+
+* gettype()
+returns a string value representing the data type of the argument
+```
+$name = "Aisle Nevertell";
+$age = 1000000;
+
+echo gettype($name); // Prints: string
+
+echo gettype($age); // Prints: integer
+```
+
+* var_dump()
+prints details about the argument it receives
+```
+var_dump($name); // Prints: string(15) "Aisle Nevertell"
+
+var_dump($age); // Prints: int(1000000)
+```
+
+* string 
+   * strrev()
+   ```
+   echo strrev("Hello, World!"); // Prints: !dlroW ,olleH
+   ```
+   
+   * strtolower()
+   ```
+   echo strtolower("HeLLo"); // Prints: hello
+   ```
+
+   * str_repeat()
+   ```
+   echo str_repeat("hi", 10);
+   ```
+
+   * substr_count()
+   ```
+   echo substr_count($story, "like"); // Prints: 8
+   ```
+   
+* numbers
+   * abs()
+   ```
+   echo abs(-10.99);
+   ```
+   
+   * round()
+   ```
+   echo round(1.2);;
+   ```
+
+   * getrandmax() , rand()
+      * Invoking rand() with no arguments will return a number between 0 and the largest number our current environment will allow.
+      * find out what this number is by invoking a different built-in function, getrandmax()
+   ```
+   $max = getrandmax(); 
+
+   echo $max;
+
+   echo rand(); // Prints a number between 0 and $max
+   
+   
+   # rand() function, however is somewhat flexible.
+   
+   echo rand(1, 2); // Prints either 1 or 2
+
+   echo rand(5, 10); // Prints a number between 5 and 10 (inclusive!)
+
+   echo rand(1, 100); // Prints a number between 1 and 100 (inclusive!)
+   
+   ```
+
+* Documentation
+abs() has the type mixed because there are multiple data types the function will accept (an integer or a float).
+The parameter for abs() is named $number. After the parentheses is a colon (:) followed by number; this is the data type the function will return.
+
+```
+abs ( mixed $number ) : number
+```
+
+```
+substr_count ( string $haystack , string $needle [, int $offset = 0 [, int $length ]] ) : int
+
+```
+```
+str_pad ( string $input , int $pad_length [, string $pad_string = " " [, int $pad_type = STR_PAD_RIGHT ]] ) : string
+
+
+$a = 29;
+$b = "You did it!";
+$c = STR_PAD_BOTH;
+$d = "*~*";
+
+echo str_pad($b, $a, $d, $c);
+```
+
