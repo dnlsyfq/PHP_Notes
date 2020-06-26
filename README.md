@@ -402,3 +402,110 @@ $d = "*~*";
 echo str_pad($b, $a, $d, $c);
 ```
 
+## Array 
+
+```
+$my_array = array(0, 1, 2);
+
+$mixed_array = array(1, "chicken", 78.2, "bubbles are crazy!");
+```
+
+* get no. of element in array 
+```
+echo count($my_array); // Prints: 3
+echo count($string_array); // Prints: 2
+echo count($mixed_array); // Prints: 4
+```
+### Arrays with Short Syntax
+
+```
+$number_array = [0, 1, 2];
+```
+
+* print array
+```
+print_r($number_array);
+```
+
+* print array element only in string 
+```
+echo implode(", ", $number_array);
+```
+
+* indexing array element
+```
+$my_array = ["tic", "tac", "toe"];
+
+echo $my_array[1]; // Prints: tac
+```
+
+* adding element in array
+```
+$string_array = ["first element", "second element"];
+
+$string_array[] = "third element";
+
+echo implode(", ", $string_array); 
+// Prints: first element, second element, third element 
+```
+
+* reassign element in array
+```
+$string_array = ["first element", "second element", "third element"];
+
+$string_array[0] = "NEW! different first element";
+
+echo $string_array[0]; // Prints: NEW! different first element"
+```
+
+* array methods : array_pop()
+takes an array as its argument. It removes the last element of an array and returns the removed element.
+
+```
+$my_array = ["tic", "tac", "toe"];
+array_pop($my_array); 
+// $my_array is now ["tic", "tac"]
+
+$popped = array_pop($my_array); 
+// $popped is "tac"
+// $my_array is now ["tic"]
+
+```
+
+* array methods : array_push()
+takes an array as its first argument. The arguments that follow are elements to be added to the end of the array. array_push() adds each of the elements to the array and returns the new number of elements in the array.
+
+```
+$new_array = ["eeny"];
+$num_added = array_push($new_array, "meeny", "miny", "moe"); 
+echo $num_added; // Prints: 4
+echo implode(", ", $new_array); // Prints: eeny, meeny, miny, moe 
+```
+
+* array methods : array_shift()
+removes the first element of an array and returns that value. Each of the elements in the array will be shifted down an index.
+```
+$adjectives = ["bad", "good", "great", "fantastic"];
+$removed = array_shift($adjectives); 
+echo $removed; //Prints: bad
+echo implode(", ", $adjectives); // Prints: good, great, fantastic 
+```
+* array methods : array_unshift
+takes an array as its first argument. The arguments that follow are elements to be added to the beginning of the array. It returns the new number of elements in the array.
+```
+$foods = ["pizza", "crackers", "apples", "carrots"];
+$arr_len = array_unshift($foods, "pasta", "meatballs", "lettuce"); 
+echo $arr_len; //Prints: 7
+echo implode(", ", $foods); 
+// Prints: pasta, meatballs, lettuce, pizza, crackers, apples, carrots
+```
+
+### Nested Array 
+
+* indexing 
+```
+$nested_arr = [[2, 4], [3, 9], [4, 16]];
+$first_el = $nested_arr[0][0];
+echo $first_el; // Prints: 2
+```
+
