@@ -655,3 +655,202 @@ function fixMeme(&$meme){
 fixMeme($bad_meme);
 
 ```
+## PHP in HTML
+
+```
+<html>
+ <head>
+  <title>My First PHP Site</title>
+ </head>
+ <body>
+ <?php 
+    echo "<h1>Oh hi!</h1>"; 
+  ?> 
+ </body>
+</html>
+```
+
+* complex php 
+
+```
+<?php
+    $lucky_number = 5 * 2 - 1 ;
+    echo "<h1>Your lucky number is ${lucky_number}</h1>";
+?>
+```
+
+```
+<?php
+    function makeHeaderGreeting($name){
+        return "<h1>Hello, ${name}!</h1>";
+    }
+
+    echo makeHeaderGreeting("World");
+
+?>
+```
+```
+<?php 
+
+$about_me = [
+  "name" => "Aisle Nevertell",
+  "birth_year" => 1902,
+  "favorite_food" => "pizza"
+];
+
+function calculateAge ($person_arr){
+  $current_year = date("Y");
+  $age = $current_year - $person_arr["birth_year"];
+  return $age;
+}
+?>
+
+<h1>Welcome!</h1>
+<h2>About me:</h2>
+
+<?php
+
+#Add your code here
+  echo "<h3>{$about_me["name"]}</h3>";
+  echo "<p> ok ".calculateAge($about_me)." happy ? </p>";
+
+  echo "<div>{$about_me["favorite_food"]} </div>";
+?>
+```
+
+* short hand 
+```
+<?="<p>PHP interprets this and turns it into HTML</p>";?>
+```
+
+### Request Superglobals
+ * to ease processing of HTML requests
+ * When the front end client makes a request to a backend PHP server, several superglobals related to the request are available to the PHP script
+ * Superglobals are automatic global variables which are available in all scopes throughout a script.
+ * The list of superglobals in PHP includes the following:
+ ```
+   $GLOBALS
+   $_SERVER
+   $_GET
+   $_POST
+   $_FILES
+   $_COOKIE
+   $_SESSION
+   $_REQUEST
+   $_ENV
+ ```
+
+> $_GET - this contains an associative array of variables passed to the current script using query parameters in the URL
+> $_POST - this contains an associative array of variables passed to the current script using a form submitted using the “POST” method
+> $_REQUEST - this contains the contents of $_GET, $_POST, and $_COOKIE
+
+```
+<html>
+<body>
+$_REQUEST:
+<?php print_r($_REQUEST) ?>
+<br>
+$_GET:
+<?php print_r($_GET) ?>
+<br>
+$_POST:
+<?php print_r($_POST) ?>
+<form method="get">
+GET Form: <input type="text" name="get_name">
+<input type="submit" value="Submit GET">
+</form>
+<form method="post">
+POST Form: <input type="text" name="post_name">
+<input type="submit" value="Submit POST">
+</form>
+<a href="index.php">Reset</a>
+</body>
+</html>
+```
+
+## GET FORM HANDLING
+setting a form’s method attribute to "get" specifies that you would like the form to be submitted using the GET method. When using this method, the form entries are passed as parameters in a URL query string
+
+```
+www.codecademy.com/?first=ellen&last=richards
+```
+this is a request to www.codecademy.com with the URL parameters first (set to the value "ellen") 
+and last (set to the value "richards")
+
+```
+// parameter names (first and last) come from the name attribute of each form input
+
+<form method="get">
+First name: <input type="text" name="first">
+<br>
+Last name: <input type="text" name="last">
+<br>
+<input type="submit" value="Submit Name">
+</form>
+```
+
+When the form is submitted, the form data is available in the $_GET superglobal array. (The data is also accessible using $_REQUEST if you do not care about which method was used by the client.)
+
+```
+print_r($_GET)
+
+Array ( [first] => ellen [last] => richards )
+```
+
+```
+<form method="get">
+Country: 
+<input type="text" name="country">
+<br>
+Language: 
+<input type="text" name="language">
+<br>
+<input type="submit" value="Submit">
+</form>
+<br>
+<p>Your language is:<?=$_GET["language"];?></p>
+<p>Your country is:<?=$_GET["country"];?></p>
+<a href="index.php">Reset</a>
+```
+## POST form handling 
+
+setting a form’s method attribute to "post" specifies that you would like the form to be submitted using the POST method. When using POST to submit forms, you will not see the URL change. The form data is sent using the headers of the HTTP request instead of URL parameters.
+
+
+To use the data from the form in PHP, each input needs to have a unique name attribute.
+
+When the form is submitted, the input data is available in the $_POST superglobal. Similar to GET, it is also available in $_REQUEST.
+
+```
+// if a user typed “Katharine” into the first input and “McCormick” into the last input of this form
+
+<form method="post">
+First name: <input type="text" name="first">
+<br>
+Last name: <input type="text" name="last">
+<br>
+<input type="submit" value="Submit Name">
+</form>
+
+// The URL would not change and print_r($_POST) would look like this:
+   
+   Array ( [first] => Katharine [last] => McCormick )
+
+```
+
+```
+<form method="post">
+Favorite Color:
+<input type="text" name="color">
+<br>
+Favorite Food:
+<input type="text" name="food">
+<br>
+<input type="submit" value="Submit">
+</form>
+<br>
+<p>Best food is: <?= $_POST["food"]?></p>
+<p>Best color is: <?= $_POST["color"]?></p>
+<a href="index.php">Reset</a>
+```
+
