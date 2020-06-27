@@ -854,3 +854,44 @@ Favorite Food:
 <a href="index.php">Reset</a>
 ```
 
+## Action attribute 
+
+If you would like to have the user navigate to a new URL and handle the form input there, you can specify the URL in the form’s action attribute. Since the action attribute specifies a relative URL, you can also enter the name of a PHP file in the same directory as the current one.
+
+```
+index.php
+receive_form.php
+
+// To handle a form using receive_form.php from index.php, you would use the following:
+<form method="get" action="receive_form.php">
+
+```
+```
+//index.php
+<html>
+<body>
+<form method="get" action="greet_user.php">
+First Name:
+<input type="text" name="first">
+<br>
+Last Name:
+<input type="text" name="last">
+<br>
+<input type="submit" value="Submit">
+</form>
+
+<a href="index.php">Reset</a>
+</body>
+</html>
+
+//greet_user.php
+<html>
+<body>
+<p>Thanks!</p>
+<p>Your name has been recorded as:</p>
+<p><?=$_GET["first"]." ".$_GET["last"]?></p>
+<a href="index.php">Reset</a>
+</body>
+</html>
+```
+
