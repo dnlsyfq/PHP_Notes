@@ -593,3 +593,37 @@ $animals_array = ["panda"=>"very cute", "lizard"=>"cute", "cockroach"=>"not very
 array_push($animals_array, "New Element in \$animals_array");
 echo $animals_array[0]; // Prints: New Element in $animals_array
 ```
+
+### Joining Arrays 
+* combine arrays. The union (+) operator takes two array operands and returns a new array with any unique keys from the second array appended to the first array
+
+```
+// since "lizard" is not a unique key, $animal_rankings["lizard"] will retain the value of $my_array["lizard"] (which is "cute").
+
+$my_array = ["panda" => "very cute", "lizard" => "cute", "cockroach" => "not very cute"];
+$more_rankings = ["capybara" => "cutest", "lizard" => "not cute", "dog" => "max cuteness"];
+$animal_rankings = $my_array + $more_rankings;
+```
+### Assign by Value or Reference
+
+```
+$favorites = ["food"=>"pizza", "person"=>"myself", "dog"=>"Tadpole"];
+$copy = $favorites;
+$alias =& $favorites;
+$favorites["food"] = "NEW!";
+
+echo $favorites["food"]; // Prints: NEW!
+echo $copy["food"]; // Prints: pizza
+echo $alias["food"]; // Prints: NEW!
+```
+
+
+```
+function reallyChangeColor (&$arr) 
+{
+  $arr["color"] = "red";    
+}
+$object = ["shape"=>"square", "size"=>"small", "color"=>"green"];
+reallyChangeColor ($object);
+echo $object["color"]; // Prints: red
+```
