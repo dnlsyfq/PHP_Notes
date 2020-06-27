@@ -509,3 +509,87 @@ $first_el = $nested_arr[0][0];
 echo $first_el; // Prints: 2
 ```
 
+### Associative Array 
+* Associative arrays are collections of key=>value pairs
+* key in Associative array can be string or interger
+* values can be any type
+* => operator to associate key with its value 
+```
+// short array syntax
+$my_array = ["panda" => "very cute", "lizard" => "cute", "cockroach" => "not very cute"];
+
+
+// array 
+$about_me = array(
+    "fullname" => "Aisle Nevertell",
+    "social" => 123456789
+);
+```
+
+* indexing elements in Assc Array
+```
+$my_array = ["panda"=>"very cute", "lizard"=>"cute", "cockroach"=>"not very cute"];
+echo $my_array["panda"]; // Prints: very cute
+```
+
+* add elements in Assc Array 
+```
+$my_array["capybara"] = "cutest";
+echo $my_array["capybara"]; // Prints: cutest
+```
+
+
+* expr in Assc Array 
+```
+$favorites = ["favorite_food"=>"pizza", "favorite_place"=>"my dreams", "FAVORITE_CASE"=>"CAPS","favorite_person"=>"myself"];
+
+echo  $favorites["favorite" . "_" . "food"]; 
+// Prints: pizza
+
+$key =  "favorite_place";
+echo  $favorites[$key];  
+// Prints: my dreams
+
+echo $favorites[strtoupper("favorite_case")];
+// Prints: CAPS
+```
+
+* adding new element in Assc Array 
+```
+$new_arr = ["first" => "I am first!", "second" => "I am second!"]; 
+
+$new_arr["third"] = "I am third!";
+
+echo $new_arr["third"]; // Prints: I am third!
+
+$new_arr["third"] = "I am the *NEW* third!";
+
+echo $new_arr["third"]; // Prints: I am the *NEW* third!
+```
+
+* removing element in Assc Array with unset()
+```
+$nums = ["one" => 1,"two"=> 2];
+
+echo implode(", ", $nums); // Prints: 1, 2
+
+unset($nums["one"]);
+
+echo implode(", ", $nums); // Prints: 2
+```
+
+* adding new element without specifying key
+The first element is associated with the key 0, the second with 1, and so on. But ordered arrays are still the same structure as associative arrays.
+
+When we add an element to an array without specifying a key (e.g. using array_push()), PHP will associate it with the “next” integer key. If no integer keys have been used, it will associate it with the key 0, otherwise it will associate it one more than the largest integer used thus far. 
+
+
+```
+$num_array = [1000 => "one thousand", 100 => "one hundred", 600 => "six hundred"];
+$num_array[] = "New Element in \$num_array";
+echo $num_array[1001]; // Prints: New Element in $num_array
+
+$animals_array = ["panda"=>"very cute", "lizard"=>"cute", "cockroach"=>"not very cute"];
+array_push($animals_array, "New Element in \$animals_array");
+echo $animals_array[0]; // Prints: New Element in $animals_array
+```
