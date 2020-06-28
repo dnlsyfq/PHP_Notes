@@ -1093,3 +1093,112 @@ if(strlen($name) > 8){
   echo "Hi, ${name}. That's a short name.";
 }
 ```
+
+## Conditional Statements and Compound Conditions
+
+```
+  $is_elevator_here = true;
+  $elevator_direction = "down";
+  $my_direction = "up";
+  $is_button_pushed = false;
+
+  if ($is_elevator_here){
+      if ($elevator_direction === $my_direction){
+        echo "I'm in the elevator.";
+      } else {
+          if ($is_button_pushed){
+            echo "I'm waiting...!";
+          } else {
+              echo "I'm pushing the button.";
+          }
+     }
+  } else {
+      if ($is_button_pushed){
+          echo "I'm waiting...";
+      } else {
+          echo "I'm pushing the button.";
+      }
+   }
+```
+
+> The && operator has a higher operator precedence than the || operator.
+
+```
+TRUE || TRUE && FALSE // Evaluates to: TRUE
+
+(TRUE || TRUE) && FALSE // Evaluates to: FALSE
+```
+
+> The not operator has very high operator precedence; be sure to use parentheses so that code evaluation happens as intended
+
+```
+!TRUE;    // Evaluates to: FALSE
+!FALSE;   // Evaluates to: TRUE
+
+!10 < 11; // Evaluates to: TRUE
+!(10 < 11);  // Evaluates to: FALSE
+!TRUE || TRUE; // Evaluates to: TRUE
+!(TRUE || TRUE); // Evaluates to: FALSE
+```
+
+## XOR Operator
+
+The logical operator xor stands for exclusive or. It takes two different boolean values or expressions as its operands and returns a single boolean value.
+
+xor evaluates to TRUE only if either its left operand or its right operand evaluate to TRUE, but not both.
+
+```
+TRUE xor TRUE;   // Evaluates to: FALSE
+
+FALSE xor TRUE;  // Evaluates to: TRUE
+
+TRUE xor FALSE;  // Evaluates to: TRUE
+
+FALSE xor FALSE; // Evaluates to: FALSE
+```
+```
+$banana_cream = ["whole milk", "sugar", "cornstarch", "salt", "egg yolks", "butter", "vanilla extract", "bananas", "heavy cream", "powdered sugar"];
+$experimental_pie = ["whole milk", "sugar", "bananas", "chicken", "salmon", "garlic"];
+
+// Write your code below:
+function eatPie($arr){
+  if(in_array("chicken",$arr) xor in_array("bananas",$arr)){
+    return "Delicious pie!" ;
+  } else {
+    return "Disgusting!";
+  }
+}
+
+echo eatPie($banana_cream);
+echo "\n\n";
+echo eatPie($experimental_pie);
+```
+
+> The or and and logical operators have a lower precedence than || and &&.
+
+```
+TRUE || TRUE && FALSE // Evaluates to: TRUE
+TRUE || TRUE and FALSE // Evaluates to: FALSE
+
+(TRUE || TRUE) && FALSE // Evaluates to: FALSE
+TRUE || (TRUE and FALSE) // Evaluates to: TRUE
+```
+
+## Multi-file Programs
+
+```
+// one.php
+echo "How are";
+
+// two.php
+echo " you?";
+
+
+// index.php
+echo "Hello! ";
+include "one.php";
+include "two.php";
+// Prints: Hello! How are you?
+
+
+```
