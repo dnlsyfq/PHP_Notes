@@ -1,5 +1,9 @@
 # PHP
 
+## Debug
+```
+$ php -S localhost:8080
+```
 ## Introduction
 PHP is a general-purpose scripting language widely 
 used as a server-side language for creating dynamic web pages.
