@@ -899,3 +899,129 @@ Last Name:
 </html>
 ```
 
+## Booleans and Comparison Operators
+
+```
+$is_clicked = TRUE;
+if ($is_clicked) {
+  $link_color = "purple";
+  echo $link_color;
+}
+```
+
+```
+$is_clicked = FALSE;
+if ($is_clicked) {
+  $link_color = "purple";
+  echo $link_color;
+} else {
+  $link_color = "blue";
+  echo $link_color;
+}
+```
+
+```
+<?php
+namespace Codecademy;
+
+$learner_one = ["is_correct"=>FALSE, "box"=>["shape"=>"none", "color"=>"none"]];
+   
+$learner_two = ["is_correct"=>TRUE, "box"=>["shape"=>"none", "color"=>"none"]];
+  
+function markAnswer($bool,&$box){
+ if($bool){
+   $box["shape"] = "checkmark";
+   $box["color"] = "green";
+ } else {
+   $box["shape"] = "x";
+   $box["color"] = "red";
+ }
+}
+
+markAnswer(
+  $learner_one["is_correct"],
+  $learner_one["box"]
+);
+
+print_r($learner_one["box"]);
+
+markAnswer(
+  $learner_two["is_correct"],
+  $learner_two["box"]
+);
+
+print_r($learner_two["box"]);
+
+?>
+```
+* elseif
+
+```
+function whatRelation($num){
+  if($num === 100){
+    echo "identical twins";
+  } elseif($num >= 35 && $num <= 99){
+    echo "parent and child or full siblings";
+  } elseif($num >= 14 && $num <= 34){
+    echo "grandparent and grandchild, aunt/uncle and niece/nephew, or half siblings";
+  } elseif($num >= 6 && $num <= 13){
+    echo "first cousins";
+  } elseif($num >= 3 && $num <= 5){
+    echo "second cousins";
+  } elseif($num >= 1 && $num <= 2){
+    echo "third cousins";
+  } elseif($num === 0){
+    echo "not genetically related";
+  }
+}
+```
+
+### switch
+
+```
+switch ($letter_grade){
+  case "A":
+    echo "Terrific";
+    break;
+  case "B":
+    echo "Good";
+    break;
+  case "C":
+    echo "Fair";
+    break;
+  case "D":
+    echo "Needs Improvement";
+    break;
+  case "F":
+    echo "See me!";
+    break;
+  default:
+    echo "Invalid grade"; 
+}
+```
+
+### switch fall through
+
+//  if $day_of_week has the value "Monday" or "Tuesday", the string "Just getting started!" will be printed
+
+```
+switch ($day_of_week) {
+  case "Monday":
+  case "Tuesday":
+    echo "Just getting started!";
+    break;
+  case "Wednesday":
+    echo "Humpday!";
+    break;
+  case "Thursday":
+  case "Friday":
+    echo "Almost the weekend!";
+    break;
+  case "Saturday":
+  case "Sunday":
+    echo "Enjoy!";
+    break;
+}
+```
+
+
