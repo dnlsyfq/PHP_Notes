@@ -1202,3 +1202,152 @@ include "two.php";
 
 
 ```
+## while 
+loop continues to iterate as long as its conditional is true.
+
+```
+$count = 1;
+while ($count < 11)
+{
+  echo "The count is: " . $count . "\n";
+  $count += 1;
+}
+```
+## do while 
+code block will execute once without the conditional being checked. After the first iteration, it behaves the same as a while loop.
+only use this type of loop when you always need the code block to execute at least one time.
+
+```
+// to ask a user to guess a secret number
+// This code asks the user to "Guess the number" and continues asking them until they successfully guess 42.
+
+$count = 1;
+do {
+  echo "The count is: " . $count . "\n";
+  $count += 1;
+} while ($count < 11);
+```
+```
+  $plant_height = 22;
+
+  do {
+    echo "The plant is ${plant_height} tall.\n";
+    $plant_height += 1;
+
+  }while($plant_height <= 30);
+  if($plant_height >= 30){
+      echo "And can produce fruit.";
+    }
+```
+
+## for 
+
+used to execute a code block a specific number of times.
+
+```
+for (#expression 1; #expression 2; #expression 3)
+{
+  # code block
+}
+```
+
+The for loop syntax includes 3 expressions:
+
+*   The first is evaluated only one time before the first iteration.
+*   The second is evaluated before each iteration. If it is TRUE, the code block is executed. Otherwise, the loop terminates.
+*   The third is evaluated after each iteration. Note that expressions 1 and 2 have semicolons after them.
+
+```
+for ($count = 1; $count < 11; $count++)
+{
+  echo "The count is: " . $count . "\n";
+}
+```
+```
+for($i = 10;$i >= 0; $i--){
+  // echo $i."\n";
+  if($i===2){
+    echo "Ready!\n";
+  }
+  elseif($i===1){
+    echo "Set!\n";
+  } 
+  elseif($i===0){
+    echo "Go!";
+  }
+  else {
+    echo $i."\n";
+  }
+}
+```
+## foreach
+is used for iterating over an array. The code block is executed for every element in the array and the value of that element is available for use in the code block.
+
+```
+$counting_array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+foreach ($counting_array as $count) {
+  echo "The count is: " . $count . "\n";
+}
+```
+```
+$details_array = ["color" => "blue", "shape" => "square"];
+foreach ($details_array as $detail) {
+  echo "The detail is: " . $detail . "\n";
+}
+
+/*
+The detail is: blue
+The detail is: square
+*/
+
+$details_array = ["color" => "blue", "shape" => "square"];
+foreach ($details_array as $attribute => $detail) {
+  echo "The " . $attribute . " is: " . $detail . "\n";
+}
+
+/*
+The color is: blue
+The shape is: square
+*/
+```
+
+```
+$scores = [
+  "Alice" => 99,
+  "Bob" => 95,
+  "Charlie" => 98,
+  "Destiny" => 91,
+  "Edward" => 88
+];
+
+foreach($scores as $key => $value){
+  echo "${key} received a score of ${value}.\n";
+}
+```
+## break and continue 
+break keyword can be used to terminate any of the loop types early.
+```
+$count = 1;
+while ($count < 11)
+{
+  echo "The count is: " . $count . "\n";
+  if ($count === 5) {
+    break;
+  }
+  $count += 1;
+}
+```
+
+continue keyword is similar to break except it only ends the current iteration early, not the entire loop.
+```
+$count = 1;
+while ($count < 11)
+{
+  if ($count === 5) {
+    $count += 1;
+    continue;
+  }
+  echo "The count is: " . $count . "\n";
+  $count += 1;
+}
+```
