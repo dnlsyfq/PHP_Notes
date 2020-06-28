@@ -1,8 +1,14 @@
-<?php
-$count = 1;
-do {
-    echo "The count is: " . $count . "\n";
-    $count += 1;
-} while ($count < 11);
-echo "ok";
-?>
+<html>
+<body>
+<ul>
+    <?php
+    for ($i = 0; $i < 2; $i++):
+        ?>
+        <li>Duck</li>
+    <?php
+    endfor;
+    ?>
+    <li>Goose</li>
+</ul>
+</body>
+</html>

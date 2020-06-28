@@ -1351,3 +1351,118 @@ while ($count < 11)
   $count += 1;
 }
 ```
+
+## loops in php html
+
+* shorthand for loops
+```
+<ul>
+<?php
+for ($i = 0; $i < 2; $i++):
+?>
+<li>Duck</li>
+<?php
+endfor;
+?>
+<li>Goose</li>
+</ul>
+```
+
+
+```
+<ul>
+    <?php
+    for ($i = 0; $i < 2; $i++):
+        ?>
+        <li>Duck</li>
+    <?php
+    endfor;
+    ?>
+    <li>Goose</li>
+</ul>
+
+/*
+Duck
+Duck
+Goose
+*/
+```
+* shorthand for while and foreach loops 
+    * For a while loop, the closing keyword is endwhile
+    ```
+    <ul>
+    <?php
+    $i = 0;
+    while ($i < 2):
+    ?>
+    <li>Duck</li>
+    <?php
+    $i++;
+    endwhile;
+    ?>
+    <li>Goose</li>
+    </ul>
+    ```
+    * for the foreach loop, the closing keyword is endforeach.
+    ```
+    <ul>
+    <?php
+    $array = [0, 1];
+    foreach ($array as $i):
+    ?>
+    <li>Duck</li>
+    <?php
+    endforeach;
+    ?>
+    <li>Goose</li>
+    </ul>
+    ```
+  * nested while and foreach
+  
+  ```
+  <?php
+  $i = 0;
+  $repeats = [0, 1];
+  while ($i < 5) :
+  ?>
+  <p>We sell shoes</p>
+    <?php
+    foreach ($repeats as $value):
+    ?>
+    <p>(only shoes)</p>
+    <?php
+    endforeach;
+    ?>
+  <?php
+    $i++;
+    endwhile;
+  ?> 
+  ```
+  
+ ## code block considerations 
+ 
+ ```
+<?php
+$array = ["Alice", "Bob", "Charlie"];
+foreach($array as $name): ?>
+<p><?=$name?></p>
+<?php endforeach; ?>
+```
+
+```
+<?php
+$footwear = [
+  "sandals" => 4,
+  "sneakers" => 7,
+	"boots" => 3
+];
+?>
+<p>Our footwear:</p>
+<?php
+foreach ($footwear as $type => $brands):
+?>
+<p>We sell <?=$brands?> brands of <?=$type?></p>
+<?php
+endforeach;
+?>
+```
