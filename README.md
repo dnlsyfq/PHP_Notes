@@ -2,7 +2,12 @@
 
 ## Debug
 ```
+// web
 $ php -S localhost:8080
+
+//cli
+$ php _.php
+
 ```
 ## Introduction
 PHP is a general-purpose scripting language widely 
@@ -350,6 +355,8 @@ var_dump($age); // Prints: int(1000000)
    echo substr_count($story, "like"); // Prints: 8
    ```
    
+    * strlen()
+
 * numbers
    * abs()
    ```
@@ -1024,4 +1031,65 @@ switch ($day_of_week) {
 }
 ```
 
+### ternary operator 
 
+```
+$isClicked = FALSE;
+$link_color = $isClicked ? "purple" : "blue";
+```
+```
+function ternaryCheckout($items){
+  return $items <=12 ? "express lane" : "regular lane";
+}
+
+function ternaryVote($age){
+  return $age >= 18 ? "yes" : "no";
+}
+```
+
+## truthy or falsy
+
+* falsy
+
+```
+
+
+Empty strings
+null
+an undefined or undeclared variable
+an empty array
+the number 0
+the string "0"
+```
+
+## user import 
+
+```
+echo "Hi, I'm Aisle Nevertell. What's your name?\n";
+$name = readline(">> ");
+echo "\nNice to meet you, $name";
+```
+
+
+```
+echo "\nWhat's your favorite color?\n";
+$color = readline(">> ");
+if ($color === "green"){
+  echo "\nCool, that's my favorite too!";
+} else {
+  echo "\nOh, $color is nice, I guess…";
+}
+```
+
+```
+echo "Hello, there. What's your first name?\n";
+$name = readline(">> Type your name ?");
+
+if(strlen($name) > 8){
+  echo "Hi, ${name}. That's a long name.";
+} elseif(strlen($name) >= 4 && strlen($name) <= 8){
+  echo "Hi, ${name}.";
+} elseif(strlen($name) <= 3){
+  echo "Hi, ${name}. That's a short name.";
+}
+```
