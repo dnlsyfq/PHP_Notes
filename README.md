@@ -1,5 +1,10 @@
 # PHP
 
+## Interactive Shell
+```
+$php -a
+```
+
 ## Debug
 ```
 // web
