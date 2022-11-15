@@ -429,6 +429,13 @@ $my_array = array(0, 1, 2);
 $mixed_array = array(1, "chicken", 78.2, "bubbles are crazy!");
 ```
 
+```
+$array = array('name','email','address');
+print_r($array);
+echo $array[2]; // return address
+```
+
+
 * get no. of element in array 
 ```
 echo count($my_array); // Prints: 3
