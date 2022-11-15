@@ -51,6 +51,9 @@ used as a server-side language for creating dynamic web pages.
 ```
 <?php 
 echo "Hello World";
+
+print("Hello World");
+
 ?>
 ```
 
